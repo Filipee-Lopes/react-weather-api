@@ -1,0 +1,39 @@
+.cardArea{
+  margin: auto;
+  max-width: 340px;
+  width: 340px;
+  margin-top: .5em;
+  padding: .8em;
+  text-align: center;
+  border: 1px solid #CCC;
+}
+
+.cardInfo{
+    display: flex;
+    justify-content: space-between;
+ /*    margin-bottom: 2em; */
+}
+
+.degArea{
+  width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.degItem{
+  background-color: #333;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid #CCC;
+  padding-left: 25px;
+  padding-top: 25px;
+}
+
+.degInfo{
+  width: 15px;
+  height: 1px;
+  background-color: #CCC;
+  transform-origin: left;
+}
