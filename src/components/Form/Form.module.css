@@ -1,0 +1,41 @@
+.card{
+    text-align: center;
+    max-width: 350px;
+    width: 350px;
+  }
+  
+  .card input{
+    padding: .3em;
+    border-radius: 5px;
+    border-style: none;
+    outline: none;
+    width: 250px;
+  }
+  
+  .card button{
+    width: 80px;
+    padding: .2em .7em;
+    border-radius: 5px;
+    border-style: none; 
+    margin-left: .3em;
+    transition: all ease .3s;
+    cursor: pointer;
+  }
+  
+  .card button:hover{
+    opacity: .8;
+  }
+  
+  @media(max-width: 380px){
+    .card{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .card button{
+      width: 250px;
+      margin-top: 10px;
+    }
+    
+  }

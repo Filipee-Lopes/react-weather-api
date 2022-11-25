@@ -37,3 +37,9 @@
   background-color: #CCC;
   transform-origin: left;
 }
+
+@media(max-width: 380px){
+  .cardArea{
+    width: 250px;
+  }
+}

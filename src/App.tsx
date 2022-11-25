@@ -1,14 +1,12 @@
 
 import React, { useState } from 'react';
 import styles from './App.module.css'
+import { api } from './api';
+import { Form } from './components/Form/Form';
 import {Card} from './components/Card/Card';
 
-
-
-
 function App() {
-  const keyApi = 'd87217871465379050f52d66973c2a5c';
-  const [location, setLocation] = useState('');
+
   const [name, setName] = useState('');
   const [country, setCountry] = useState ('');
   const [temp, setTemp] = useState(0);
@@ -19,16 +17,20 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
+  const [location, setLocation] = useState('');
 
-
-
-
+  const handleLocation = (e: React.ChangeEvent<HTMLInputElement>)=>{
+      setLocation(e.target.value);
+  }
 
   const getWeather = async ()=>{
     setLoading(true);
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(location)}&appid=${keyApi}&units=metric&lang=pt_br`);
-    const json = await response.json();
-      if(json.cod === 200){
+  
+    let response = await api.getWeather(location);
+    let json = await response;
+
+ 
+      if(json && json.cod === 200 ){
         console.log(json);
         setName(json.name);
         setCountry(json.sys.country);
@@ -45,16 +47,9 @@ function App() {
         setLoading(false);
         setShow(false);
       } 
-
-
-
-
-
   }
    
-  const handleLocation = (e: React.ChangeEvent<HTMLInputElement>)=>{
-    setLocation(e.target.value);
-  }
+ 
 
   const handleShow = (json:string)=>{
     if(json){
@@ -63,14 +58,13 @@ function App() {
   }
   
 
-
   return (
     <div className={styles.container}>
-      <div className={styles.card}>
-        <h1>Clima</h1>
-        <input onChange={handleLocation} placeholder='Digite a cidade...' type="text" />
-        <button onClick={getWeather} type="submit">Buscar</button>
-      </div>
+
+      <Form fn={handleLocation}  handleClick={getWeather} />
+
+
+
       <div className={styles.card}>
         {loading &&
           <div>Carregando...</div>
@@ -88,7 +82,7 @@ function App() {
           weather={weatherIcon}
           wind={windSpeed}
           deg={deg}
-          ></Card>
+          />
         }
 
       </div>
