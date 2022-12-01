@@ -43,7 +43,7 @@ Antes de começar :checkered_flag:, você precisa ter [Git](https://git-scm.com)
 $ git clone https://github.com/Filipee-Lopes/react-weather-api/
 
 # Acessando:
-$ cd react_calc_bf
+$ cd react-weather-api
 
 # Instalando:
 $ npm install
